@@ -54,7 +54,7 @@ nav{position:fixed;inset:0 0 auto 0;z-index:80;display:flex;align-items:center;j
 @media(max-width:760px){.nlinks{display:none}}
 
 /* ---------- HERO ---------- */
-.hero{position:relative;min-height:100vh;padding:90px 22px 0}
+.hero{position:relative;padding:90px 22px 0}
 .corner{position:absolute;z-index:5}
 .c-tl{left:22px;top:74px}.c-tr{right:22px;top:74px;text-align:right}
 .c-bl{left:22px;bottom:190px}.c-br{right:22px;bottom:190px;text-align:right}
@@ -109,7 +109,7 @@ nav{position:fixed;inset:0 0 auto 0;z-index:80;display:flex;align-items:center;j
 @keyframes mqx{to{transform:translateX(-50%)}}
 
 /* ---------- RECEIPTS ---------- */
-.receipts{position:relative;padding:16vh 22px 10vh;max-width:1500px;margin:0 auto}
+.receipts{position:relative;padding:clamp(80px,10vh,150px) 22px clamp(60px,7vh,110px);max-width:1500px;margin:0 auto}
 .sect{font-family:var(--sheet);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--mid);display:block;margin-bottom:20px}
 .sect b{color:var(--marker);font-weight:400}
 .bignums{display:flex;flex-wrap:wrap;gap:4vw;align-items:flex-end}
@@ -123,7 +123,7 @@ nav{position:fixed;inset:0 0 auto 0;z-index:80;display:flex;align-items:center;j
 .receipt-note{font-family:var(--scrawl);font-size:clamp(26px,3.4vw,44px);color:var(--marker);transform:rotate(-3deg);display:inline-block;margin-top:6vh}
 
 /* ---------- THE BILL ---------- */
-.bill{position:relative;background:var(--ink);color:var(--paper);padding:14vh 22px;margin-top:10vh}
+.bill{position:relative;background:var(--ink);color:var(--paper);padding:clamp(90px,10vh,150px) 22px;margin-top:clamp(60px,7vh,110px)}
 .bill .sect{color:rgba(237,234,225,.55)}
 .bill-flow{max-width:1300px;margin:0 auto;text-align:center;line-height:1.06}
 .bill-flow span{display:inline-block;margin:0 .32em;vertical-align:baseline}
@@ -137,7 +137,7 @@ nav{position:fixed;inset:0 0 auto 0;z-index:80;display:flex;align-items:center;j
 .bill-note span{font-family:var(--sheet);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:rgba(237,234,225,.5)}
 
 /* ---------- WHAT I DO ---------- */
-.lanes{max-width:1500px;margin:0 auto;padding:14vh 22px 6vh}
+.lanes{max-width:1500px;margin:0 auto;padding:clamp(90px,10vh,150px) 22px clamp(40px,5vh,80px)}
 .lane{position:relative;border-top:2px solid var(--ink);padding:5vh 0 5vh;display:grid;grid-template-columns:90px 1fr auto;gap:3vw;align-items:baseline;text-decoration:none;transition:padding-left .25s}
 .lane:hover{padding-left:18px}
 .lane .idx{font-family:var(--fash);font-size:30px;color:var(--marker)}
@@ -147,7 +147,7 @@ nav{position:fixed;inset:0 0 auto 0;z-index:80;display:flex;align-items:center;j
 @media(max-width:860px){.lane{grid-template-columns:50px 1fr}.lane p{display:none}}
 
 /* ---------- CTA ---------- */
-.cta{position:relative;padding:16vh 22px 18vh;text-align:center;overflow:hidden}
+.cta{position:relative;padding:clamp(100px,11vh,160px) 22px clamp(110px,12vh,180px);text-align:center;overflow:hidden}
 .cta .big{font-family:var(--fash);font-size:clamp(44px,9vw,150px);letter-spacing:.05em;line-height:.95;margin:0}
 .cta .big .scr{font-family:var(--scrawl);color:var(--marker);font-size:clamp(50px,10vw,170px);display:inline-block;transform:rotate(-4deg) translateY(8px)}
 .cta .row{margin-top:7vh;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
@@ -334,7 +334,7 @@ footer .meta{font-size:10px}
   <a class="lane rv" href="services.html" style="border-bottom:2px solid var(--ink)"><span class="idx">№3</span><h3>Speaking &amp; Hosting</h3><p>Keynotes · panels · emcee — rooms that need a pulse</p></a>
 </section>
 
-<section style="padding:12vh 22px 0;text-align:center">
+<section style="padding:clamp(80px,9vh,140px) 22px 0;text-align:center">
   <p class="rv" style="font-family:var(--fash);font-size:clamp(28px,4.6vw,72px);letter-spacing:.04em;line-height:1.15;margin:0;text-transform:uppercase">
     “Marketing is <span style="color:var(--marker)">King</span>.<br>Distribution is <span style="font-family:var(--blk);letter-spacing:-.02em">KING KONG</span>.”
   </p>
