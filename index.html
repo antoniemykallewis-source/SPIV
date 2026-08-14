@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ERIC SPIVAK — SPIV IS UR PLUG · Los Angeles</title>
+<meta name="description" content="Producer, advisor, speaker. 15 years, 500+ shows, 1,500+ artists. Los Angeles.">
+<link rel="stylesheet" href="assets/fonts.css">
+<style>
+:root{
+  --paper:#EDEAE1; --paper2:#E4E0D5;
+  --ink:#131110;
+  --marker:#E8391B;
+  --acid:#C8F31D;
+  --mid:#5F5A50;
+  --fash:'Fash',Didot,'Bodoni MT',serif;
+  --grot:'Grot','Space Grotesk',system-ui,sans-serif;
+  --blk:'Blk','Archivo Black',sans-serif;
+  --scrawl:'Scrawl',cursive;
+  --sheet:'Sheet','Courier New',monospace;
+  --set:'Set',Archivo,system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:clip}
+html,body{overflow-x:clip}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--set);overflow-x:hidden}
+::selection{background:var(--marker);color:var(--paper)}
+:focus-visible{outline:3px solid var(--marker);outline-offset:3px}
+a{color:inherit}
+
+/* xerox grain + faint fold */
+body::before{content:"";position:fixed;inset:0;z-index:70;pointer-events:none;opacity:.5;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='300' height='300' filter='url(%23n)' opacity='.16'/></svg>")}
+.fold{position:fixed;left:0;right:0;top:58vh;height:2px;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(19,17,16,.10) 12%,rgba(19,17,16,.05) 50%,rgba(19,17,16,.11) 88%,transparent)}
+
+/* ---------- corner metadata ---------- */
+.meta{font-family:var(--sheet);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);line-height:1.8}
+.meta .dim{color:var(--mid)}
+
+/* ---------- nav ---------- */
+nav{position:fixed;inset:0 0 auto 0;z-index:80;display:flex;align-items:center;justify-content:space-between;
+  padding:14px 22px;mix-blend-mode:multiply}
+.logo{font-family:var(--blk);font-size:19px;letter-spacing:-.02em;text-decoration:none}
+.logo sup{font-family:var(--sheet);font-size:9px;vertical-align:super}
+.nlinks{display:flex;gap:26px}
+.nlinks a{font-family:var(--sheet);font-size:11px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;position:relative}
+.nlinks a b{color:var(--marker);font-weight:400;margin-right:5px}
+.nlinks a::after{content:"";position:absolute;left:0;right:100%;bottom:-4px;height:3px;background:var(--marker);transition:right .22s cubic-bezier(.7,0,.3,1)}
+.nlinks a:hover::after{right:0}
+.book{font-family:var(--sheet);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  background:var(--ink);color:var(--paper);padding:10px 16px;text-decoration:none;transform:rotate(-1.2deg);transition:transform .18s,background .18s}
+.book:hover{transform:rotate(0deg) scale(1.03);background:var(--marker)}
+@media(max-width:760px){.nlinks{display:none}}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:100vh;padding:90px 22px 0}
+.corner{position:absolute;z-index:5}
+.c-tl{left:22px;top:74px}.c-tr{right:22px;top:74px;text-align:right}
+.c-bl{left:22px;bottom:190px}.c-br{right:22px;bottom:190px;text-align:right}
+
+.stack{position:relative;max-width:1500px;margin:0 auto;padding-top:9vh}
+.eric{font-family:var(--fash);font-weight:400;font-size:clamp(40px,7.2vw,118px);letter-spacing:.3em;margin:0 0 0 .5vw;line-height:1}
+.eric i{font-style:normal;color:var(--marker)}
+.spiv{position:relative;font-family:var(--blk);font-size:clamp(120px,30vw,470px);line-height:.78;letter-spacing:-.045em;margin:0;user-select:none}
+.spiv .l{display:inline-block;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.spiv:hover .l1{transform:translateY(-12px) rotate(-2deg)}
+.spiv:hover .l2{transform:translateY(8px)}
+.spiv:hover .l3{transform:translateY(-7px) rotate(1.4deg)}
+.spiv:hover .l4{transform:translateY(12px) rotate(-1deg)}
+/* scrawl across it */
+.plug{position:absolute;z-index:6;left:34%;top:16%;transform:rotate(-9deg);pointer-events:none}
+.plug svg text{font-family:var(--scrawl);font-size:120px;fill:var(--marker)}
+.plug .under{stroke:var(--marker);stroke-width:7;fill:none;stroke-linecap:round}
+/* draw-on animation */
+.plug text{opacity:0;animation:pop .01s .85s forwards}
+.plug .under{stroke-dasharray:620;stroke-dashoffset:620;animation:draw .5s .95s cubic-bezier(.5,0,.4,1) forwards}
+@keyframes pop{to{opacity:1}}
+@keyframes draw{to{stroke-dashoffset:0}}
+/* rotating stamp overlapping the V */
+.stamp{position:absolute;left:2%;top:12%;width:142px;height:142px;z-index:7;animation:spin 22s linear infinite;
+  background:var(--paper);border-radius:50%;border:2px solid var(--ink);box-shadow:0 8px 22px rgba(19,17,16,.2)}
+.stamp svg{width:100%;height:100%;overflow:visible}
+.stamp textPath{font-family:var(--sheet);font-size:15.5px;letter-spacing:.31em;text-transform:uppercase;fill:var(--ink)}
+.stamp .star{fill:var(--marker)}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* acid sticker */
+.sticker{position:absolute;left:38%;bottom:-4%;z-index:8;background:var(--acid);color:var(--ink);transform:rotate(4deg);
+  font-family:var(--sheet);font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  padding:12px 16px;box-shadow:0 6px 18px rgba(19,17,16,.18);cursor:default;transition:transform .2s}
+.sticker:hover{transform:rotate(0) scale(1.05)}
+.sticker::before{content:"";position:absolute;right:-7px;top:-7px;width:22px;height:22px;background:var(--paper);
+  clip-path:polygon(0 0,100% 100%,100% 0);box-shadow:-2px 2px 3px rgba(0,0,0,.12)}
+.roleline{position:relative;z-index:9;display:flex;justify-content:space-between;align-items:baseline;max-width:1500px;margin:3vh auto 0;flex-wrap:wrap;gap:10px}
+.roles,.tagline{background:var(--paper);box-shadow:0 0 0 8px var(--paper)}
+.roles{font-family:var(--fash);font-size:clamp(17px,2.5vw,34px);letter-spacing:.14em;text-transform:uppercase}
+.roles em{font-style:normal;color:var(--marker);padding-inline:.35em}
+.tagline{font-family:var(--sheet);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);max-width:320px;text-align:right}
+@media(max-width:760px){.tagline{text-align:left}}
+
+/* marquee — outlined type, tilted, full-bleed */
+.mq{position:relative;margin-top:7vh;transform:rotate(-2deg);left:-40px;width:calc(100% + 80px);
+  border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);background:var(--paper);overflow:hidden}
+.mq .in{display:inline-flex;white-space:nowrap;animation:mqx 60s linear infinite;padding:12px 0}
+.mq span{font-family:var(--blk);font-size:clamp(30px,4.6vw,64px);text-transform:uppercase;letter-spacing:.01em;padding-inline:.45em;
+  color:transparent;-webkit-text-stroke:2px var(--ink)}
+.mq span.fill{color:var(--ink);-webkit-text-stroke:0}
+.mq i{font-style:normal;color:var(--marker);font-family:var(--fash);font-size:clamp(24px,3vw,40px);vertical-align:middle}
+@keyframes mqx{to{transform:translateX(-50%)}}
+
+/* ---------- RECEIPTS ---------- */
+.receipts{position:relative;padding:16vh 22px 10vh;max-width:1500px;margin:0 auto}
+.sect{font-family:var(--sheet);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--mid);display:block;margin-bottom:20px}
+.sect b{color:var(--marker);font-weight:400}
+.bignums{display:flex;flex-wrap:wrap;gap:4vw;align-items:flex-end}
+.bn{position:relative}
+.bn .n{font-family:var(--blk);font-size:clamp(80px,13vw,210px);line-height:.85;letter-spacing:-.04em}
+.bn .lab{font-family:var(--sheet);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mid);margin-top:12px;display:block}
+.bn svg.circ{position:absolute;left:-8%;top:-12%;width:116%;height:124%;pointer-events:none;overflow:visible}
+.bn svg.circ path{fill:none;stroke:var(--marker);stroke-width:5;stroke-linecap:round;opacity:0;stroke-dasharray:1200;stroke-dashoffset:1200}
+.bn.inview svg.circ path{animation:draw 1s .3s forwards, pop .01s .3s forwards}
+.bn .fash{font-family:var(--fash);font-size:clamp(56px,8vw,120px);letter-spacing:.02em;line-height:.9}
+.receipt-note{font-family:var(--scrawl);font-size:clamp(26px,3.4vw,44px);color:var(--marker);transform:rotate(-3deg);display:inline-block;margin-top:6vh}
+
+/* ---------- THE BILL ---------- */
+.bill{position:relative;background:var(--ink);color:var(--paper);padding:14vh 22px;margin-top:10vh}
+.bill .sect{color:rgba(237,234,225,.55)}
+.bill-flow{max-width:1300px;margin:0 auto;text-align:center;line-height:1.06}
+.bill-flow span{display:inline-block;margin:0 .32em;vertical-align:baseline}
+.w1{font-family:var(--blk);font-size:clamp(34px,5.6vw,86px);letter-spacing:-.02em}
+.w2{font-family:var(--fash);font-size:clamp(30px,5vw,78px);letter-spacing:.06em}
+.w3{font-family:var(--grot);font-weight:500;font-size:clamp(22px,3.4vw,52px)}
+.w4{font-family:var(--sheet);font-size:clamp(15px,2vw,28px);letter-spacing:.06em}
+.wm{color:var(--marker)} .wa{color:var(--acid)}
+.wo{color:transparent;-webkit-text-stroke:1.6px var(--paper)}
+.bill-note{text-align:center;margin-top:7vh}
+.bill-note span{font-family:var(--sheet);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:rgba(237,234,225,.5)}
+
+/* ---------- WHAT I DO ---------- */
+.lanes{max-width:1500px;margin:0 auto;padding:14vh 22px 6vh}
+.lane{position:relative;border-top:2px solid var(--ink);padding:5vh 0 5vh;display:grid;grid-template-columns:90px 1fr auto;gap:3vw;align-items:baseline;text-decoration:none;transition:padding-left .25s}
+.lane:hover{padding-left:18px}
+.lane .idx{font-family:var(--fash);font-size:30px;color:var(--marker)}
+.lane h3{font-family:var(--blk);font-size:clamp(38px,7vw,110px);line-height:.85;letter-spacing:-.03em;margin:0;text-transform:uppercase}
+.lane:hover h3{color:transparent;-webkit-text-stroke:2.5px var(--ink)}
+.lane p{font-family:var(--sheet);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mid);max-width:240px;line-height:1.8;margin:0;text-align:right}
+@media(max-width:860px){.lane{grid-template-columns:50px 1fr}.lane p{display:none}}
+
+/* ---------- CTA ---------- */
+.cta{position:relative;padding:16vh 22px 18vh;text-align:center;overflow:hidden}
+.cta .big{font-family:var(--fash);font-size:clamp(44px,9vw,150px);letter-spacing:.05em;line-height:.95;margin:0}
+.cta .big .scr{font-family:var(--scrawl);color:var(--marker);font-size:clamp(50px,10vw,170px);display:inline-block;transform:rotate(-4deg) translateY(8px)}
+.cta .row{margin-top:7vh;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{font-family:var(--sheet);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;padding:18px 30px;transition:transform .18s}
+.btn:hover{transform:translateY(-3px) rotate(-1deg)}
+.btn-ink{background:var(--ink);color:var(--paper)}
+.btn-line{border:2px solid var(--ink)}
+.cta .tel{display:block;margin-top:5vh;font-family:var(--sheet);font-size:12px;letter-spacing:.22em;color:var(--mid)}
+.cta .tel a{text-decoration:none;border-bottom:2px solid var(--marker)}
+
+/* ---------- footer ---------- */
+footer{border-top:2px solid var(--ink);padding:26px 22px 100px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+footer .meta{font-size:10px}
+.gorilla{font-family:var(--scrawl);font-size:30px;color:var(--marker);transform:rotate(-5deg)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.heroposter{position:absolute;right:-4%;top:7%;width:clamp(120px,14vw,225px);transform:rotate(4deg);z-index:0;mix-blend-mode:multiply;opacity:.96;box-shadow:0 16px 34px rgba(19,17,16,.22)}
+.heroposter img{width:100%;display:block}
+.spiv{position:relative;z-index:2}
+@media(max-width:760px){.heroposter{display:none}}
+
+/* ---- sponsor wall ---- */
+.bp{display:inline-block;margin:.12em .34em;transition:transform .22s cubic-bezier(.2,.8,.2,1)}
+.bp:hover{transform:rotate(-2deg) scale(1.07)}
+.bnet{font-family:var(--blk);color:#E50914;font-size:clamp(30px,5vw,78px);letter-spacing:-.03em}
+.bhei{font-family:var(--set);font-weight:700;color:#1F7A1F;font-size:clamp(24px,3.8vw,58px);letter-spacing:.02em}
+.bhei i{font-style:normal;color:#E8391B;font-size:.75em;vertical-align:.12em;margin-right:.14em}
+.bsot{font-family:var(--fash);color:var(--paper);font-size:clamp(28px,4.6vw,72px)}
+.btwi{font-family:var(--grot);font-weight:700;color:#1DA1F2;font-size:clamp(26px,4.2vw,64px);letter-spacing:-.03em}
+.blvm{font-family:var(--fash);color:var(--paper);font-size:clamp(24px,3.8vw,58px);letter-spacing:.28em}
+.bvay{font-family:var(--set);font-weight:700;color:var(--paper);font-size:clamp(18px,2.8vw,40px)}
+.bhun{font-family:var(--fash);color:var(--paper);font-size:clamp(22px,3.4vw,52px);letter-spacing:.04em}
+.bdep{font-family:var(--grot);font-weight:700;color:#FF2300;font-size:clamp(26px,4.2vw,64px);letter-spacing:-.02em}
+.bboi{font-family:var(--blk);color:var(--paper);font-size:clamp(24px,3.8vw,58px);letter-spacing:.01em}
+.bmad{font-family:var(--blk);color:var(--paper);font-size:clamp(17px,2.6vw,36px);letter-spacing:.18em}
+.bdev{font-family:var(--set);font-weight:500;color:#05CC47;font-size:clamp(18px,2.8vw,40px)}
+.bdev svg{width:.95em;height:.95em;vertical-align:-.12em;margin-right:.22em}
+.bhl{font-family:var(--sheet);color:var(--acid);font-size:clamp(14px,2vw,26px);letter-spacing:.08em}
+.bmix{font-family:var(--blk);color:var(--paper);font-size:clamp(24px,3.8vw,56px);transform:skewX(-8deg);letter-spacing:-.02em}
+.bmix:hover{transform:skewX(-8deg) rotate(-2deg) scale(1.07)}
+.bkh{font-size:clamp(30px,5vw,78px)}
+
+/* ---------- mobile overhaul ---------- */
+@media(max-width:760px){
+  .hero{padding-top:76px;min-height:auto}
+  .corner{position:static;text-align:left}
+  .c-tl,.c-tr{display:block;margin-bottom:6px}
+  .c-tr br{display:none}
+  .c-tr .dim::before{content:" — "}
+  .stack{padding-top:7vh}
+  .eric{letter-spacing:.2em;display:block;margin-bottom:2vh}
+  .spiv{font-size:34vw;line-height:.8;display:block;white-space:nowrap}
+  .plug{left:0;top:-9%;transform:rotate(-9deg) scale(.5);transform-origin:left top}
+  .stamp{width:100px;height:100px;left:auto;right:2%;bottom:auto;top:-84px}
+  .stamp textPath{font-size:15px;letter-spacing:.3em}
+  .sticker{position:static;display:inline-block;margin-top:18px;transform:rotate(-2deg)}
+  .roleline{margin-top:4vh}
+  .roles,.tagline{box-shadow:none;background:transparent}
+  .mq{margin-top:5vh}
+  .lane .idx{font-size:20px}
+  footer{padding-bottom:60px}
+}
+@media(prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;transition:none}
+  .mq .in{animation:none}
+  .stamp{animation:none}
+  .plug text{opacity:1;animation:none}
+  .plug .under{stroke-dashoffset:0;animation:none}
+  .bn svg.circ path{opacity:1;stroke-dashoffset:0;animation:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<div class="fold" aria-hidden="true"></div>
+
+<nav>
+  <a class="logo" href="index.html">SPIV<sup>®</sup></a>
+  <div class="nlinks">
+      <a href="services.html"><b>01</b>Services</a>
+      <a href="media.html"><b>02</b>Media</a>
+      <a href="about.html"><b>03</b>About</a>
+      <a href="press.html"><b>04</b>Press</a>
+    </div>
+  <a class="book" href="contact.html">Book →</a>
+</nav>
+
+<!-- ============== HERO ============== -->
+<header class="hero">
+  <div class="corner c-tl meta">(LIFE OF THE PARTY)<br><span class="dim">PRODUCER · ADVISOR · SPEAKER</span></div>
+  <div class="corner c-tr meta">LOS ANGELES, CA<br><span class="dim">EST. 2010 — STILL OUTSIDE</span></div>
+
+  <div class="stack">
+    <div class="heroposter" aria-hidden="true"><img src="assets/img/poster.png" alt=""></div>
+    <h1 style="margin:0">
+      <span class="eric">ERIC<i>.</i></span>
+      <span class="spiv" aria-label="SPIV"><span class="l l1">s</span><span class="l l2">p</span><span class="l l3">i</span><span class="l l4">v</span></span>
+    </h1>
+
+    <div class="plug" aria-hidden="true">
+      <svg width="560" height="200" viewBox="0 0 560 200">
+        <text x="10" y="110">is ur plug</text>
+        <path class="under" d="M18,150 C160,176 380,172 528,138 M528,138 L497,132 M528,138 L505,158"/>
+      </svg>
+    </div>
+
+    <div class="stamp" aria-hidden="true">
+      <svg viewBox="0 0 200 200">
+        <defs><path id="cir" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+        <text><textPath href="#cir" startOffset="0">SPIV✦IS✦UR✦PLUG✦MOTIVATE✦LA✦</textPath></text>
+        <path class="star" d="M100,74 L108,94 L129,95 L112,108 L118,129 L100,116 L82,129 L88,108 L71,95 L92,94 Z"/>
+      </svg>
+    </div>
+
+    <div class="sticker">BOOKING OPEN — F/W 2026</div>
+  </div>
+
+  <div class="roleline">
+    <span class="roles">Producer<em>✕</em>Advisor<em>✕</em>Speaker</span>
+    <span class="tagline">"I bring your wildest ideas to life." — 15 years, every major US market</span>
+  </div>
+
+  <div class="meta" style="display:flex;justify-content:space-between;margin-top:5vh">
+    <span>(500+ SHOWS) <span class="dim">· 1,500+ ARTISTS BOOKED</span></span>
+    <span class="dim">NOT MASS-PRODUCED — <span style="color:var(--ink)">(HIGH SCHOOL DROPOUT)</span></span>
+  </div>
+
+  <div class="mq" aria-label="Selected clients">
+    <div class="in">
+      <span>Obama</span><i>✕</i><span class="fill">A$AP Rocky</span><i>✕</i><span>Doja Cat</span><i>✕</i><span class="fill">Virgil Abloh</span><i>✕</i><span>Sotheby's</span><i>✕</i><span class="fill">Netflix</span><i>✕</i><span>LVMH</span><i>✕</i><span class="fill">Flying Lotus</span><i>✕</i><span>Peggy Gou</span><i>✕</i><span class="fill">Heineken</span><i>✕</i>
+      <span aria-hidden="true">Obama</span><i aria-hidden="true">✕</i><span aria-hidden="true" class="fill">A$AP Rocky</span><i aria-hidden="true">✕</i><span aria-hidden="true">Doja Cat</span><i aria-hidden="true">✕</i><span aria-hidden="true" class="fill">Virgil Abloh</span><i aria-hidden="true">✕</i><span aria-hidden="true">Sotheby's</span><i aria-hidden="true">✕</i><span aria-hidden="true" class="fill">Netflix</span><i aria-hidden="true">✕</i><span aria-hidden="true">LVMH</span><i aria-hidden="true">✕</i><span aria-hidden="true" class="fill">Flying Lotus</span><i aria-hidden="true">✕</i><span aria-hidden="true">Peggy Gou</span><i aria-hidden="true">✕</i><span aria-hidden="true" class="fill">Heineken</span><i aria-hidden="true">✕</i>
+    </div>
+  </div>
+</header>
+
+<!-- ============== RECEIPTS ============== -->
+<section class="receipts" id="work">
+  <span class="sect"><b>(01)</b> THE RECEIPTS — KEPT SINCE 2010</span>
+  <div class="bignums">
+    <div class="bn rv"><span class="n">500<span style="color:var(--marker)">+</span></span><span class="lab">Shows produced independently</span>
+      <svg class="circ" viewBox="0 0 400 240" aria-hidden="true"><path d="M60,120 C40,40 340,20 370,100 C395,180 90,230 55,160 C40,130 80,70 150,60"/></svg>
+    </div>
+    <div class="bn rv"><span class="n">1,500<span style="color:var(--marker)">+</span></span><span class="lab">Artists booked &amp; paid</span></div>
+    <div class="bn rv"><span class="fash">fifteen</span><span class="lab">Years — every major US market</span></div>
+  </div>
+  <span class="receipt-note rv">← counted. not estimated.</span>
+</section>
+
+<!-- ============== THE BILL ============== -->
+<section class="bill">
+  <span class="sect" style="text-align:center;display:block"><b>(02)</b> THE BILL — TRUSTED BY</span>
+  <p class="bill-flow rv" style="line-height:1.25">
+    <span class="bp w1">Barack Obama</span>
+    <span class="bp w2 wm">A$AP Rocky</span>
+    <span class="bp bnet">NETFLIX</span>
+    <span class="bp w3">Doja Cat</span>
+    <span class="bp bhei"><i>★</i>Heineken</span>
+    <span class="bp w1 wo">Virgil Abloh</span>
+    <span class="bp bsot">Sotheby&#8217;s</span>
+    <span class="bp btwi">twitter</span>
+    <span class="bp w4">Flying Lotus</span>
+    <span class="bp blvm">L V M H</span>
+    <span class="bp w2">Peggy Gou</span>
+    <span class="bp bkh wm">Keith Haring Estate</span>
+    <span class="bp bvay">VaynerMedia</span>
+    <span class="bp bhun">THE HUNDREDS</span>
+    <span class="bp bdep">depop</span>
+    <span class="bp bboi">BOILER ROOM</span>
+    <span class="bp bmad">STEVE MADDEN</span>
+    <span class="bp bdev"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.207 4.794l.23-.43V0H15.07l-.436.44-2.058 3.925-.646.436H4.58v5.993h4.04l.36.436-4.175 7.98-.24.43V24H8.93l.436-.44 2.07-3.925.644-.436h7.35v-5.993h-4.05l-.36-.438 4.186-7.977z"/></svg>DeviantArt</span>
+    <span class="bp bhl">H.Lorenzo</span>
+    <span class="bp bmix">Mixmag</span>
+  </p>
+  <div class="bill-note rv"><span>— AND A FEW HUNDRED MORE. ASK AROUND. —</span></div>
+</section>
+
+<!-- ============== LANES ============== -->
+<section class="lanes" id="story">
+  <span class="sect"><b>(03)</b> WHAT YOU CAN GET ME FOR</span>
+  <a class="lane rv" href="services.html"><span class="idx">№1</span><h3>Events &amp; Production</h3><p>Talent buying · programming · logistics · ops — penthouse or parking lot</p></a>
+  <a class="lane rv" href="services.html"><span class="idx">№2</span><h3>Strategy &amp; Advisory</h3><p>Brand · partnerships · biz dev · community · growth</p></a>
+  <a class="lane rv" href="services.html" style="border-bottom:2px solid var(--ink)"><span class="idx">№3</span><h3>Speaking &amp; Hosting</h3><p>Keynotes · panels · emcee — rooms that need a pulse</p></a>
+</section>
+
+<section style="padding:12vh 22px 0;text-align:center">
+  <p class="rv" style="font-family:var(--fash);font-size:clamp(28px,4.6vw,72px);letter-spacing:.04em;line-height:1.15;margin:0;text-transform:uppercase">
+    “Marketing is <span style="color:var(--marker)">King</span>.<br>Distribution is <span style="font-family:var(--blk);letter-spacing:-.02em">KING KONG</span>.”
+  </p>
+  <span class="meta" style="display:block;margin-top:18px"><span class="dim">— E. SPIVAK</span></span>
+</section>
+
+<!-- ============== CTA ============== -->
+<section class="cta" id="contact">
+  <h2 class="big rv">GOT A <span class="scr">wild</span> IDEA?</h2>
+  <div class="row rv">
+    <a class="btn btn-ink" href="https://instagram.com/eric.spiv.is.ur.plug" target="_blank" rel="noopener">DM @eric.spiv.is.ur.plug</a>
+    <a class="btn btn-line" href="tel:+18133890159">+1 813 389 0159</a>
+  </div>
+  <span class="tel rv">SPEAKING &amp; PRESS — VIA <a href="https://urconduit.com" target="_blank" rel="noopener">URCONDUIT.COM</a></span>
+</section>
+
+<footer>
+  <span class="meta">ERIC SPIVAK © MMXXVI<br><span class="dim">BUILDING A BETTER TOMORROW, TODAY</span></span>
+  <span class="gorilla">go far, go together</span>
+  <div class="fnav" style="display:flex;gap:18px;flex-wrap:wrap;align-items:center">
+    <a href="services.html" style="font-family:var(--sheet);font-size:10px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none">Services</a>
+    <a href="media.html" style="font-family:var(--sheet);font-size:10px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none">Media</a>
+    <a href="about.html" style="font-family:var(--sheet);font-size:10px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none">About</a>
+    <a href="press.html" style="font-family:var(--sheet);font-size:10px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none">Press</a>
+    <a href="contact.html" style="font-family:var(--sheet);font-size:10px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none">Contact</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.rv,.bn');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!('IntersectionObserver' in window)||reduce){els.forEach(function(e){e.classList.add('in','inview')});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){
+    if(en.isIntersecting){en.target.classList.add('in','inview');io.unobserve(en.target);}
+  })},{rootMargin:'0px 0px -10% 0px',threshold:.05});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
